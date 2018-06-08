@@ -122,7 +122,19 @@ $(document).ready(function() {
     $('.operator').on('click', function() {
       if(firstNumber.length > 0) {
         operation = $(this).attr("value");
-        $('#operator').text(operation);
+        var symbol = '';
+        if (operation == 'plus') {
+            symbol = '+';
+        } else if (operation == 'minus') {
+            symbol = '-';
+        } else if (operation == 'times') {
+            symbol = 'x';
+        } else if (operation == 'divide') {
+            symbol = '/';
+        } else if (operation == 'power') {
+            symbol = '^';
+        }
+        $('#operator').text(symbol);
       }
     })
 
@@ -137,9 +149,6 @@ $(document).ready(function() {
         for(var i = 0; i < secondNumber.length; i++) {
           second += secondNumber[i];
         }
-        $('#first-number').text(first);
-        $('#operator').text(operation);
-        $('#second-number').text(second);
         first = parseInt(first);
         second = parseInt(second);
         if(operation == "plus") {
